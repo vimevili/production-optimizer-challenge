@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,6 +31,6 @@ public class Product implements Serializable {
     @Column(nullable = false)
     private BigDecimal price;
 
-    @OneToMany(mappedBy = "product")
-    private List<Composition> materialsNeeded;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Composition> materialsNeeded = new ArrayList<>();
 }

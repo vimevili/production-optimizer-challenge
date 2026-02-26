@@ -1,5 +1,6 @@
 package com.projedata.production_optimizer.models;
 
+import com.projedata.production_optimizer.enums.UnitOfMeasure;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,5 +28,8 @@ public class Material implements Serializable {
 
     @Column(nullable = false)
     private Double stockQuantity;
+
+    @Enumerated(EnumType.STRING)
+    private UnitOfMeasure unit;
 
 }

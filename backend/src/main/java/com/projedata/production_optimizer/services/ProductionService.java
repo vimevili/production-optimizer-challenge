@@ -35,6 +35,9 @@ public class ProductionService {
         BigDecimal totalPotentialRevenue = BigDecimal.ZERO;
 
         for (Product product : products) {
+            if (product.getMaterialsNeeded() == null || product.getMaterialsNeeded().isEmpty()) {
+                continue;
+            }
             int quantityProduced = 0;
             boolean canProduceMore = true;
 
